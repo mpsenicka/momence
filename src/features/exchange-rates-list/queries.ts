@@ -1,6 +1,5 @@
 import { queryKeyCatalog } from '@/queryKeyCatalog'
 import { useQuery } from '@tanstack/react-query'
-import { parseExchangeRates } from './utils'
 
 export const useExchangeRates = () => {
     const data = useQuery({
@@ -8,10 +7,10 @@ export const useExchangeRates = () => {
         queryFn: async () => {
             const res = await fetch(
                 'https://momence.onrender.com/api/exchange-rates',
-                // 'https://cors-anywhere.herokuapp.com/https://www.cnb.cz/en/financial-markets/foreign-exchange-market/central-bank-exchange-rate-fixing/central-bank-exchange-rate-fixing/daily.txt',
             )
-            const text = await res.text()
-            return parseExchangeRates(text)
+            if (!res.ok) throw new Error('Failed to fetch exchange rates')
+
+            return res.json()
         },
     })
 

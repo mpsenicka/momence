@@ -1,6 +1,4 @@
-import { ExchangeRate } from './types'
-
-export const parseExchangeRates = (text: string): ExchangeRate[] => {
+export const parseExchangeRates = (text) => {
     const lines = text.trim().split('\n')
     const dataLines = lines.slice(2) // Skip headers
 
