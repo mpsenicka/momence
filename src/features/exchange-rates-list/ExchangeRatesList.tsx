@@ -12,7 +12,7 @@ export const ExchangeRatesList = () => {
     }
 
     return data?.map((rat) => (
-        <Card style={{ marginTop: 15, marginBottom: 15 }}>
+        <Card style={{ marginTop: 15, marginBottom: 15 }} key={rat.code}>
             <Group style={{ width: '100%' }} justify='space-between'>
                 <Text>
                     {`${getFlagFromCurrencyCode(rat.code)} ${rat.country} ${
