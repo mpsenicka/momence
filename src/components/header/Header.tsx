@@ -11,7 +11,7 @@ export const Header = () => {
         <HeaderBody>
             <Group
                 justify='space-between'
-                style={{ width: '100%', padding: 16 }}
+                style={{ width: '100%', padding: 16, maxWidth: '1440px' }}
             >
                 <Group spacing={16}>
                     <Button
@@ -46,6 +46,7 @@ const HeaderBody = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 
     height: 60px;
     width: 100%;

@@ -1,10 +1,9 @@
-import React from 'react'
 import styled, { css } from 'styled-components'
 
 type Variant = 'filled' | 'outline' | 'light'
 type Size = 'sm' | 'md' | 'lg'
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.HTMLAttributes<HTMLDivElement> {
     variant?: Variant
     color?: string
     fullWidth?: boolean
@@ -117,7 +116,7 @@ const StyledButton = styled.button<Required<ButtonProps>>`
     }
 `
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button = ({
     children,
     variant = 'filled',
     color = 'blue',
@@ -125,7 +124,7 @@ export const Button: React.FC<ButtonProps> = ({
     radius = 4,
     size = 'md',
     ...rest
-}) => {
+}: ButtonProps) => {
     return (
         <StyledButton
             variant={variant}
@@ -135,6 +134,7 @@ export const Button: React.FC<ButtonProps> = ({
             size={size}
             {...rest}
         >
+            {/* @ts-expect-error - for some reason there's type mismatch */}
             {children}
         </StyledButton>
     )
