@@ -5,7 +5,11 @@ import { Group } from '@/atomic/group'
 import { Text } from '@/atomic/text'
 
 export const ExchangeRatesList = () => {
-    const { data } = useExchangeRates()
+    const { data, isLoading, isError } = useExchangeRates()
+
+    if (isLoading || isError) {
+        return null
+    }
 
     return data?.map((rat) => (
         <Card style={{ marginTop: 15, marginBottom: 15 }}>
