@@ -1,7 +1,9 @@
 import { useExchangeRates } from './queries'
 
 export const ExchangeRatesList = () => {
-    const rates = useExchangeRates()
-    console.log('🚀 ~ ExchangeRatesList ~ rates:', rates)
-    return <div>exchange rates list</div>
+    const { data } = useExchangeRates()
+
+    return data?.map((rat) => (
+        <div style={{ marginTop: 30 }}>{rat.currency}</div>
+    ))
 }
