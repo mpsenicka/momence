@@ -1,5 +1,6 @@
 import { queryKeyCatalog } from '@/queryKeyCatalog'
 import { useQuery } from '@tanstack/react-query'
+import { ExchangeRate } from './types'
 
 export const useExchangeRates = () => {
     const data = useQuery({
@@ -10,7 +11,7 @@ export const useExchangeRates = () => {
             )
             if (!res.ok) throw new Error('Failed to fetch exchange rates')
 
-            return res.json()
+            return res.json() as unknown as ExchangeRate[]
         },
     })
 

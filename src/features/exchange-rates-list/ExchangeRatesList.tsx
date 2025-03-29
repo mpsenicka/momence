@@ -11,15 +11,15 @@ export const ExchangeRatesList = () => {
         return null
     }
 
-    return data?.map((rat) => (
-        <Card style={{ marginTop: 15, marginBottom: 15 }} key={rat.code}>
+    return data?.map((rate) => (
+        <Card style={{ marginTop: 15, marginBottom: 15 }} key={rate.code}>
             <Group style={{ width: '100%' }} justify='space-between'>
                 <Text>
-                    {`${getFlagFromCurrencyCode(rat.code)} ${rat.country} ${
-                        rat.currency
+                    {`${getFlagFromCurrencyCode(rate.code)} ${rate.country} ${
+                        rate.currency
                     }`}
                 </Text>
-                <Text>{`${rat.amount} ${rat.code} is ${rat.rate} CZK`}</Text>
+                <Text>{`${rate.amount} ${rate.code} is ${rate.rate} CZK`}</Text>
             </Group>
         </Card>
     ))
